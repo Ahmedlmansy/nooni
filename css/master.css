@@ -420,6 +420,9 @@ header i {
     top: 60px;
     right: -10px;
   }
+  .content-landing .img-landing img {
+    width: 250px;
+  }
 }
 .links-dropdown ul li {
   padding: 12px;
