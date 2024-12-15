@@ -239,6 +239,9 @@ header i {
   .all-text h2 {
     width: 100%;
   }
+  .all-text {
+    margin-bottom: 10px;
+  }
 }
 .all-text span {
   font-weight: bold;
@@ -410,6 +413,13 @@ header i {
   transition: all 0.5s ease;
   opacity: 0;
   transform: translateY(20px);
+  box-shadow: 7px 12px 20px #eee;
+}
+@media (max-width: 600px) {
+  .links-dropdown {
+    top: 60px;
+    right: -10px;
+  }
 }
 .links-dropdown ul li {
   padding: 12px;
