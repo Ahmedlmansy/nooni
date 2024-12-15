@@ -60,82 +60,82 @@ xmarks.forEach((xmark) => {
 
 // chage the img
 
-// let contentData = [
-//   {
-//     subTitle: "SALE OFF 25%",
-//     title: "Discover Living Room Tables",
-//     description: "Free standard shipping",
-//     descriptionSpan: "with $45",
-//     img: "img/landing03.png",
-//   },
-//   {
-//     subTitle: "SALE OFF 30%",
-//     title: "Lamps & Lighting Great Low Prices",
-//     description: "Free standard shipping ",
-//     descriptionSpan: "with $35",
-//     img: "img/landing02.png",
-//   },
-//   {
-//     subTitle: "New Arrivals",
-//     title: "Designer chair styles for every space",
-//     description: "Designer chair styles for every space - ",
-//     descriptionSpan: "Free Shipping",
-//     img: "img/landing01.png",
-//   },
-// ];
+let contentData = [
+  {
+    subTitle: "SALE OFF 25%",
+    title: "Discover Living Room Tables",
+    description: "Free standard shipping",
+    descriptionSpan: "with $45",
+    img: "img/landing03.png",
+  },
+  {
+    subTitle: "SALE OFF 30%",
+    title: "Lamps & Lighting Great Low Prices",
+    description: "Free standard shipping ",
+    descriptionSpan: "with $35",
+    img: "img/landing02.png",
+  },
+  {
+    subTitle: "New Arrivals",
+    title: "Designer chair styles for every space",
+    description: "Designer chair styles for every space - ",
+    descriptionSpan: "Free Shipping",
+    img: "img/landing01.png",
+  },
+];
 
-// let currentIndex = 0;
-// let interval;
+let currentIndex = 0;
+let interval;
 
-// const subTitle = document.getElementById("subTitle"); // subTitle
-// const title = document.getElementById("title");
-// const description = document.getElementById("description");
-// const descriptionSpan = document.getElementById("descriptionSpan");
-// const imgData = document.getElementById("imgData");
-// const boltes = document.querySelectorAll(".control");
+const subTitle = document.getElementById("subTitle"); // subTitle
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+const descriptionSpan = document.getElementById("descriptionSpan");
+const imgData = document.getElementById("imgData");
+const boltes = document.querySelectorAll(".control");
 
-// // Function to update content
-// function updateData(index) {
-//   const content = document.querySelector(".content");
-//   content.classList.add("hidden");
+// Function to update content
+function updateData(index) {
+  const content = document.querySelector(".content");
+  content.classList.add("hidden");
 
-//   setTimeout(() => {
-//     const data = contentData[index];
-//     subTitle.textContent = data.subTitle;
-//     title.textContent = data.title;
-//     description.textContent = data.description;
-//     imgData.src = data.img;
+  setTimeout(() => {
+    const data = contentData[index];
+    subTitle.textContent = data.subTitle;
+    title.textContent = data.title;
+    description.textContent = data.description;
+    imgData.src = data.img;
 
-//     content.classList.remove("hidden");
+    content.classList.remove("hidden");
 
-//     boltes.forEach((btn, i) => {
-//       btn.classList.toggle("active", i === index);
-//     });
-//   }, 500);
-// }
+    boltes.forEach((btn, i) => {
+      btn.classList.toggle("active", i === index);
+    });
+  }, 500);
+}
 
-// // Function to auto-switch content
-// function startAutoSwitch() {
-//   clearInterval(interval); // تأكد من إيقاف أي مؤقت سابق
-//   interval = setInterval(() => {
-//     currentIndex = (currentIndex + 1) % contentData.length;
-//     updateData(currentIndex);
-//   }, 5000);
-// }
+// Function to auto-switch content
+function startAutoSwitch() {
+  clearInterval(interval); // تأكد من إيقاف أي مؤقت سابق
+  interval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % contentData.length;
+    updateData(currentIndex);
+  }, 5000);
+}
 
-// // Add event listeners for buttons
-// boltes.forEach((bolt) => {
-//   bolt.addEventListener("click", () => {
-//     clearInterval(interval); // أوقف التبديل التلقائي
-//     const index = parseInt(bolt.dataset.index, 10);
-//     if (!isNaN(index)) {
-//       currentIndex = index;
-//       updateData(currentIndex);
-//       startAutoSwitch(); // أعد تشغيل التبديل التلقائي
-//     }
-//   });
-// });
+// Add event listeners for buttons
+boltes.forEach((bolt) => {
+  bolt.addEventListener("click", () => {
+    clearInterval(interval); // أوقف التبديل التلقائي
+    const index = parseInt(bolt.dataset.index, 10);
+    if (!isNaN(index)) {
+      currentIndex = index;
+      updateData(currentIndex);
+      startAutoSwitch(); // أعد تشغيل التبديل التلقائي
+    }
+  });
+});
 
-// // Initialize
-// updateData(currentIndex);
-// startAutoSwitch();
+// Initialize
+updateData(currentIndex);
+startAutoSwitch();

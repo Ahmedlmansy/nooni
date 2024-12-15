@@ -202,17 +202,43 @@ header i {
   transition: all 0.3s ease;
   height: calc(90vh - 100px);
 }
+@media (min-width: 600px) and (max-width: 750px) {
+  .content-landing .content {
+    padding: 40px 0;
+  }
+}
+
 .content-landing .content.hidden {
   opacity: 0;
 }
 .content-landing .img-landing img {
   width: 550px;
 }
+@media (max-width: 1100px) {
+  .content-landing .img-landing img {
+    width: 350px;
+  }
+}
+
 .all-text h2 {
   font-size: 45px;
   width: 80%;
   letter-spacing: 6px;
   font-weight: 400;
+}
+@media (max-width: 850px) {
+  .all-text h2 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 600px) {
+  .content-landing .content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .all-text h2 {
+    width: 100%;
+  }
 }
 .all-text span {
   font-weight: bold;
