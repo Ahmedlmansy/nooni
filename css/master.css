@@ -488,6 +488,7 @@ header i {
   display: flex;
   background-color: var(--gray-backgraund);
   justify-content: center;
+  padding: 10px 0;
 }
 .boltes div {
   margin: 3px;
@@ -500,4 +501,221 @@ header i {
 }
 .boltes .active {
   background-color: #000;
+}
+
+.h2-title {
+  padding: 20px 0;
+}
+.h2-title h2 {
+  padding: 10px 0;
+}
+.scrol-shop {
+  display: flex;
+  justify-content: space-around;
+  gap: 80px;
+  margin: 20px 0;
+  padding: 10px 0;
+  overflow-x: scroll;
+}
+.all-shop-content {
+  display: flex;
+  align-items: center;
+}
+.img-scrol {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.img-scrol img {
+  width: 100%;
+  transition: 0.5s ease;
+  height: 100%;
+}
+.img-scrol .overlay {
+  opacity: 0;
+  display: flex;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #0000007d;
+  border-radius: 50%;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.5s ease;
+}
+.img-scrol .overlay a i {
+  color: #eee;
+}
+.img-scrol:hover .overlay {
+  opacity: 1;
+}
+.img-scrol:hover img {
+  width: 110%;
+  height: 110%;
+}
+.content-shop {
+  margin-left: 15px;
+}
+.content-shop p {
+  color: var(--gray-color);
+}
+.scrol-shop::-webkit-scrollbar {
+  width: 100px;
+}
+
+.scrol-shop::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.scrol-shop::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.all-banners {
+  display: flex;
+  gap: 10px;
+}
+.all-banners a {
+  color: #000;
+}
+.lamp-banner {
+  background-size: cover;
+  background-image: url(../img/banner-0-removebg-preview.png);
+  height: 335px;
+  background-position: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.lamp-banner .shop-now {
+  width: fit-content;
+}
+.detalis {
+  font-size: 25px;
+  margin: 0;
+  padding: 5px;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+.frist-banner {
+  width: 50%;
+}
+.table-banner {
+  width: 100%;
+  height: 340px;
+  background-image: url(../img/banner-1.jpg);
+  background-size: cover;
+  background-position: 50%;
+  display: flex;
+}
+.detalis-table {
+  padding: 15px;
+}
+.table-banner p.shop-now {
+  margin: 25px;
+  max-width: fit-content;
+}
+.border-all {
+  width: 100%;
+  margin: 10px;
+  height: 95%;
+  padding-top: 5px;
+  position: relative;
+  transition: all 0.5s ease;
+}
+.border {
+  position: absolute;
+  transition: transform 0.3s ease;
+}
+.border.black {
+  background-color: #000;
+}
+.border.white {
+  background-color: #fff;
+}
+.top,
+.bottom {
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+.left,
+.right {
+  top: 0;
+  height: 100%;
+  width: 1px;
+}
+.top {
+  top: 0;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.bottom {
+  bottom: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+}
+.left {
+  left: 0;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+.right {
+  right: 0;
+  transform-origin: bottom;
+  transform: scaleY(0);
+}
+.border-all:hover .top {
+  transform: scaleX(1);
+}
+.border-all:hover .bottom {
+  transform: scaleX(1);
+}
+.border-all:hover .left {
+  transform: scaleY(1);
+}
+.border-all:hover .right {
+  transform: scaleY(1);
+}
+.second-banner {
+  width: 50%;
+  height: 100%;
+  background-image: url(../img/banner-2.jpg);
+  background-size: cover;
+  background-position: 50%;
+  text-align: center;
+  margin-top: 10px;
+}
+@media (max-width: 775px) {
+  .all-banners {
+    flex-direction: column-reverse;
+  }
+  .second-banner,
+  .frist-banner {
+    width: 100%;
+  }
+}
+.big-sale {
+  color: #fff;
+  padding: 15px;
+  height: 85vh;
+}
+.big-sale span {
+  font-weight: bold;
+}
+.big-sale p {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  margin: 25px 0;
+}
+.big-sale h5 span {
+  border-bottom: 1px solid #fff;
+  font-size: 20px;
 }

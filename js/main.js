@@ -136,6 +136,30 @@ boltes.forEach((bolt) => {
   });
 });
 
-// Initialize
 updateData(currentIndex);
 startAutoSwitch();
+
+const scrollContainer = document.querySelector(".scrol-shop");
+
+let scrollDirection = 1;
+
+let currentScroll = 0;
+
+function performScroll() {
+  const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+  currentScroll += 200 * scrollDirection;
+
+  if (currentScroll >= maxScroll) {
+    scrollDirection = -1;
+    currentScroll = maxScroll;
+  } else if (currentScroll <= 0) {
+    scrollDirection = 1;
+    currentScroll = 0;
+  }
+  scrollContainer.scrollTo({
+    left: currentScroll,
+    behavior: "smooth",
+  });
+}
+
+const scrollInterval = setInterval(performScroll, 3000);
