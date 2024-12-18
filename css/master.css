@@ -592,6 +592,10 @@ header i {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  transition: all 0.4s ease;
+}
+.lamp-banner:hover {
+  background-position: 70%;
 }
 .lamp-banner .shop-now {
   width: fit-content;
@@ -718,4 +722,52 @@ header i {
 .big-sale h5 span {
   border-bottom: 1px solid #fff;
   font-size: 20px;
+}
+.therd-banner,
+.second-banner,
+.frist-banner {
+  cursor: pointer;
+}
+.therd-banner-content {
+  background-image: url(../img/banner03.jpg);
+  background-size: cover;
+  padding: 50px 0;
+  margin-top: 10px;
+  transition: all 0.4s ease;
+  display: flex;
+}
+.therd-banner-content:hover {
+  background-position: 50%;
+}
+.therd-banner-content h1 {
+  font-size: 65px;
+  margin: 0 0 0 10px;
+}
+.content {
+  margin-left: 35px;
+}
+.content h3 {
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin: 0;
+  font-weight: 500;
+}
+.content p {
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+@media (max-width: 685px) {
+  .therd-banner-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+@media (max-width: 485px) {
+  .content h3 {
+    font-size: 20px;
+  }
+  .therd-banner-content h1 {
+    font-size: 45px;
+    margin: 0 0 10px 10px;
+  }
 }
