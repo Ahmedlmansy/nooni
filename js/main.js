@@ -163,3 +163,56 @@ function performScroll() {
 }
 
 const scrollInterval = setInterval(performScroll, 3000);
+
+let imgsData = [
+  {
+    img: "img/best01.jpg",
+    alternative: "img/best02.jpg",
+  },
+  {
+    img: "img/best03.jpg",
+    alternative: "img/best04.jpg",
+  },
+  {
+    img: "img/best05.jpg",
+    alternative: "img/best06.jpg",
+  },
+  {
+    img: "img/best07.jpg",
+    alternative: "img/best08.jpg",
+  },
+  {
+    img: "img/best09.jpg",
+    alternative: "img/best10.jpg",
+  },
+  {
+    img: "img/best11.jpg",
+    alternative: "img/best12.jpg",
+  },
+  {
+    img: "img/best13.jpg",
+    alternative: "img/best14.jpg",
+  },
+];
+
+let bestImgs = document.querySelectorAll(".img-best img");
+
+bestImgs.forEach((theimg) => {
+  theimg.addEventListener("mouseover", () => {
+    theimg.src = `${imgsData[theimg.dataset.src].alternative}`;
+  });
+  theimg.addEventListener("mouseleave", () => {
+    theimg.src = `${imgsData[theimg.dataset.src].img}`;
+  });
+});
+
+let lovedIcon = document.querySelectorAll(".loved i ");
+
+lovedIcon.forEach(
+  (icon) =>
+    (icon.onclick = () => {
+      icon.classList.toggle("fa-solid");
+    })
+);
+
+// icon.style.backgroundColor = "#000";
