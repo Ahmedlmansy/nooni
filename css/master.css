@@ -1,5 +1,6 @@
 :root {
   --gray-color: #848484;
+  --red-color: #d10202;
   --gray-backgraund: #f2f2f2;
 }
 body {
@@ -891,8 +892,115 @@ header i {
   font-size: 16px;
 }
 .dec-img-best .discount {
+  display: none;
   text-decoration: line-through;
   margin-left: 8px;
   color: var(--gray-color);
   font-size: 16px;
 }
+
+/* Start Blog */
+.allBlog {
+  margin-top: 50px;
+}
+.allContentBlog {
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.rightMove,
+.leftMove {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.rightMove:hover,
+.leftMove:hover {
+  background-color: #ccc;
+}
+.rightMove i,
+.leftMove i {
+  margin: auto;
+}
+.rightMove {
+  right: 20px;
+}
+.leftMove {
+  left: 20px;
+}
+
+.allContentBlog,
+.fristBlog {
+  display: flex;
+  gap: 15px;
+}
+
+.allContentImg {
+  position: relative;
+}
+.allContentImg .dataup,
+.allContentImg .imgAuthor {
+  position: absolute;
+  left: 10px;
+}
+.allContentImg .dataup {
+  background-color: #fff;
+  padding: 2px 10px;
+  margin-top: 10px;
+}
+.allContentImg .imgAuthor {
+  width: 60px;
+  bottom: 10px;
+  border: 5px solid #eeeeee80;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+.allContentImg .imgAuthor:hover {
+  width: 65px;
+}
+.decBlog .lactionBlog span a {
+  color: var(--gray-color);
+  transition: all 0.5s ease;
+}
+.decBlog .lactionBlog span a:hover,
+.decBlog .titleBlog a:hover {
+  color: var(--red-color);
+}
+.decBlog .titleBlog a {
+  color: #000;
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+}
+.pBlog {
+  color: var(--gray-color);
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@media (max-width: 800px) {
+  .allContentBlog,
+  .fristBlog {
+    flex-direction: column;
+  }
+  .imgBlog {
+    width: 100% !important;
+  }
+  .allContentImg .imgAuthor {
+    width: 40px;
+  }
+  .allContentImg .imgAuthor:hover {
+    width: 45px;
+  }
+}
+
+/* End Blog */

@@ -215,4 +215,53 @@ lovedIcon.forEach(
     })
 );
 
-// icon.style.backgroundColor = "#000";
+let statusBest = document.querySelectorAll(".status");
+let allprice = document.querySelectorAll(".allPrice");
+
+let discount = document.querySelectorAll(".discount");
+statusBest.forEach((status) => {
+  //
+  let hot = document.createElement("div");
+  hot.innerHTML = "HOT";
+  hot.classList.add("hot");
+  //
+  let sale = document.createElement("div");
+  sale.innerHTML = "Sale";
+  sale.classList.add("sale");
+  //
+  let soldOut = document.createElement("div");
+  soldOut.innerHTML = "Sold Out";
+  soldOut.classList.add("sold-out");
+  //
+  let arryStatus = status.dataset.status.split(",");
+  if (arryStatus[status.dataset.statui] === "hot") {
+    status.appendChild(hot);
+  } else if (arryStatus[status.dataset.statui] === "sale") {
+    status.appendChild(sale);
+    discount[0].style.display = "inline";
+  } else if (arryStatus[status.dataset.statui] === "sould-out") {
+    status.appendChild(soldOut);
+  } else if (arryStatus[status.dataset.statui] === "hot-sale") {
+    status.appendChild(sale);
+    discount[1].style.display = "inline";
+    status.appendChild(hot);
+  }
+});
+
+let perantTest = document.querySelector(".allContentBlog");
+let imgBlog = document.querySelectorAll(".imgBlog");
+let decBlog = document.querySelectorAll(".decBlog");
+function clac() {
+  let thewidth = perantTest.clientWidth;
+  let uintWidth = thewidth / 6;
+  if (thewidth > 800) {
+    imgBlog.forEach((img) => {
+      img.style.width = `${uintWidth * 3}px`;
+    });
+    decBlog.forEach((des) => {
+      des.style.width = `${uintWidth * 2}px`;
+    });
+  }
+}
+clac();
+window.addEventListener("resize", clac);

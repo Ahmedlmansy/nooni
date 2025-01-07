@@ -3,52 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
+    <title>Screen Width Change</title>
     <style>
-      /* تنسيق العنصر */
-      .border-animation {
-        position: relative;
-        display: inline-block;
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      #message {
         padding: 20px;
-        font-size: 18px;
-        color: #333;
-        border: none;
-        overflow: hidden;
-        cursor: pointer;
-      }
-
-      /* إضافة البوردر */
-      .border-animation::before,
-      .border-animation::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 0;
-        background: transparent;
-        transition: all 0.5s ease;
-      }
-
-      /* التأثير عند الإشارة بالماوس */
-      .border-animation:hover::before {
-        width: 100%;
-        height: 100%;
-        border-top: 2px solid #3498db; /* اللون العلوي */
-        border-left: 2px solid #3498db; /* اللون اليساري */
-        transition-delay: 0s; /* يبدأ فورًا */
-      }
-
-      .border-animation:hover::after {
-        width: 100%;
-        height: 100%;
-        border-bottom: 2px solid #3498db; /* اللون السفلي */
-        border-right: 2px solid #3498db; /* اللون اليميني */
-        transition-delay: 0.25s; /* يبدأ بعد قليل */
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        display: inline-block;
       }
     </style>
-    <div class="border-animation">مرر الماوس هنا</div>
+  </head>
+  <body>
+    <h1>Resize the Browser Window</h1>
+    <div id="message">Current Width: <span id="width"></span>px</div>
 
-    <style></style>
+    <script>
+      const widthDisplay = document.getElementById("width");
+
+      function updateWidth() {
+        const currentWidth = window.innerWidth;
+        widthDisplay.textContent = currentWidth;
+
+        // Example of additional actions based on width
+        if (currentWidth < 600) {
+          document.body.style.backgroundColor = "#fce4ec"; // Pink for small screens
+        } else if (currentWidth < 900) {
+          document.body.style.backgroundColor = "#fff9c4"; // Yellow for medium screens
+        } else {
+          document.body.style.backgroundColor = "#e8f5e9"; // Green for large screens
+        }
+      }
+
+      // Initialize the display
+      updateWidth();
+
+      // Add event listener for window resize
+      window.addEventListener("resize", updateWidth);
+    </script>
   </body>
 </html>
