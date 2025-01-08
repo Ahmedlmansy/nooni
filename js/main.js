@@ -116,7 +116,7 @@ function updateData(index) {
 
 // Function to auto-switch content
 function startAutoSwitch() {
-  clearInterval(interval); // تأكد من إيقاف أي مؤقت سابق
+  clearInterval(interval);
   interval = setInterval(() => {
     currentIndex = (currentIndex + 1) % contentData.length;
     updateData(currentIndex);
@@ -248,12 +248,13 @@ statusBest.forEach((status) => {
   }
 });
 
+//  Dividing blog spaces
 let perantTest = document.querySelector(".allContentBlog");
 let imgBlog = document.querySelectorAll(".imgBlog");
 let decBlog = document.querySelectorAll(".decBlog");
-function clac() {
-  let thewidth = perantTest.clientWidth;
-  let uintWidth = thewidth / 6;
+let thewidth = perantTest.clientWidth;
+let uintWidth = thewidth / 6;
+function clacWidth() {
   if (thewidth > 800) {
     imgBlog.forEach((img) => {
       img.style.width = `${uintWidth * 3}px`;
@@ -263,5 +264,41 @@ function clac() {
     });
   }
 }
-clac();
-window.addEventListener("resize", clac);
+clacWidth();
+window.addEventListener("resize", clacWidth);
+
+// scrolling Blog
+
+let allContentBlog = document.querySelector(".allContentBlog");
+let leftMove = document.querySelector(".leftMove");
+let rightMove = document.querySelector(".rightMove");
+
+rightMove.addEventListener("click", () => {
+  // console.log(allContentBlog.clientWidth); for test
+  allContentBlog.scrollBy({
+    left: thewidth - uintWidth,
+    behavior: "smooth",
+  });
+});
+leftMove.addEventListener("click", () => {
+  // console.log(allContentBlog.clientWidth); for test
+  allContentBlog.scrollBy({
+    left: -(thewidth - uintWidth),
+    behavior: "smooth",
+  });
+});
+
+leftMove.style.display = "none";
+allContentBlog.addEventListener("scroll", () => {
+  if (allContentBlog.scrollLeft === 0) {
+    leftMove.style.display = "none";
+  } else {
+    leftMove.style.display = "flex";
+  }
+  const maxScroll = allContentBlog.scrollWidth - allContentBlog.clientWidth;
+  if (maxScroll === Math.floor(allContentBlog.scrollLeft)) {
+    rightMove.style.display = "none";
+  } else {
+    rightMove.style.display = "flex";
+  }
+});

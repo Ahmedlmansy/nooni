@@ -908,11 +908,12 @@ header i {
   overflow-y: hidden;
   overflow-x: scroll;
 }
+
 .rightMove,
 .leftMove {
-  position: absolute;
+  position: fixed;
   z-index: 100;
-  top: 50%;
+  top: 75%;
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
@@ -943,7 +944,6 @@ header i {
   display: flex;
   gap: 15px;
 }
-
 .allContentImg {
   position: relative;
 }
@@ -1001,6 +1001,16 @@ header i {
   .allContentImg .imgAuthor:hover {
     width: 45px;
   }
+  .decBlog {
+    width: 100% !important;
+  }
+  .rightMove,
+  .leftMove {
+    display: none;
+  }
+}
+.allContentBlog::-webkit-scrollbar {
+  display: none;
 }
 
 /* End Blog */
